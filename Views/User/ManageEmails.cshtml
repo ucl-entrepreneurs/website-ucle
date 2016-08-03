@@ -1,0 +1,27 @@
+﻿@model Ucle.Models.ManageEmailsViewModel
+
+@{
+    ViewBag.Title = "ManageEmails";
+}
+
+@using ( Html.BeginForm( "ManageEmails", "User", FormMethod.Post, new { enctype = "multipart/form-data" } ) )
+{
+    <section>
+        <div class="container inner">
+            <div class="row">
+                <div class="col-md-6 col-sm-6 center-block text-center">
+                    <header>
+                        <h1>Manage Emails</h1>
+                    </header>
+                    @using ( Html.BeginForm( "ManageEmails", "User", FormMethod.Post, new { enctype = "multipart/form-data" } ) )
+                    {
+                        <div>
+                            @Html.EditorForModel()
+                            <input type="submit" value="Update" class="btn btn-default submit-btn" />
+                        </div>
+                    }
+                </div><!-- /.col -->
+            </div><!-- /.row -->
+        </div><!-- /.container -->
+    </section>
+}

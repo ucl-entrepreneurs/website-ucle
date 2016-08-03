@@ -1,0 +1,140 @@
+﻿@using Ucle.Domain.Entities;
+@using ClientDependency.Core;
+@using ClientDependency.Core.Mvc;
+
+@model Ucle.Models.ViewEventsViewModel
+
+@{
+    ViewBag.Title = "Events";
+
+    Html.RequiresCss( "~/DateTimePicker/jquery.datetimepicker.css" );
+
+    //Html.RequiresJs( "//code.jquery.com/ui/1.11.4/jquery-ui.js" );
+    Html.RequiresJs( "~/DateTimePicker/jquery.datetimepicker.js" );
+    Html.RequiresJs( "~/Javascript/DateTimePicker.js" );
+}
+
+<section id="portfolio">
+
+    <div class="container inner">
+        <div class="row">
+            <div class="col-md-8 col-sm-9 center-block text-center">
+                <header>
+                    <h1>Events</h1>
+                    @if ( ViewBag.AddEventSuccess != null )
+                    {
+                        <p>@ViewBag.AddEventSuccess</p>
+                    }
+                    else if ( ViewBag.DeleteEventSuccess != null )
+                    {
+                        <p>@ViewBag.DeleteEventSuccess</p>
+                    }
+                    else
+                    {
+                        <p>Please see the below calender for our upcoming events</p>
+                    }
+                    </p>
+                </header>
+            </div><!-- /.col -->
+        </div><!-- /.row -->
+    </div><!-- /.container -->
+</section>
+
+<section>
+    <div class="container inner">   
+        <div class="row">
+            <div class="col-md-12">
+                @if ( Model.Events != null && Model.Events.Count > 0 )
+                {
+                    <table class="my-table table table-bordered table-striped" cellspacing="0" width="100%">
+                        <thead>
+                            <tr>
+                                <th>Title</th>
+                                <th>Description</th>
+                                <th>Time</th>
+                                <th>UrlLink</th>
+                                <th>Delete</th>
+                            </tr>
+                        </thead>
+                        <tfoot>
+                            <tr>
+                                <th>Title</th>
+                                <th>Description</th>
+                                <th>Time</th>
+                                <th>UrlLink</th>
+                                <th>Delete</th>
+                            </tr>
+                        </tfoot>
+                        <tbody>
+                            @foreach ( Event ev in Model.Events )
+                            {
+                                <tr>
+                                    <th>@ev.Title</th>
+                                    <th>@ev.Description</th>
+                                    <th>@ev.Time</th>
+                                    <th>@ev.UrlLink</th>
+                                    <th>@Html.ActionLink( "Delete", "DeleteEvent", "User", new { id = @ev.ID }, new { } )</th>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                }
+                else
+                {
+                    <header>
+                        <div class="col-md-8 col-sm-9 center-block text-center">
+                            <p>There are no events to display at this time</p>
+                        </div>
+                    </header>
+                }
+            </div>
+        </div>
+    </div>
+</section>
+
+@using ( Html.BeginForm( "AddEvent", "User", FormMethod.Post, new { enctype = "multipart/form-data" } ) )
+{
+    <section class="light-bg">
+        <div class="container inner">
+            <div class="row">
+                <div class="col-md-6 col-sm-6 center-block text-center">
+                    <header>
+                        <h1>Add a new Event</h1>
+                    </header>
+                @using ( Html.BeginForm( "AddEvent", "User", FormMethod.Post, new { enctype = "multipart/form-data" } ) )
+                {
+                    <div>
+                        @Html.TextBoxFor( x => x.AddEventViewModel.Title, new { @class = "form-control", placeholder = "Event Title" } )
+                        @Html.ValidationMessageFor( x => x.AddEventViewModel.Title )
+                        <br />
+
+                        @Html.TextBoxFor( x => x.AddEventViewModel.Description, new { @class = "form-control", placeholder = "Event Description" } )
+                        @Html.ValidationMessageFor( x => x.AddEventViewModel.Description )
+                        <br />
+
+                        @Html.TextBoxFor( x => x.AddEventViewModel.UrlLink, new { @class = "form-control", placeholder = "Event URL" } )
+                        @Html.ValidationMessageFor( x => x.AddEventViewModel.UrlLink )
+                        <br />
+
+                        @Html.TextBoxFor( x => x.AddEventViewModel.Time, new { id = "datetimepicker", @class = "", @readonly = "readonly", placeholder = "Date/Time" } )
+                        @Html.ValidationMessageFor( x => x.AddEventViewModel.Time )
+
+                        <input type="submit" class="btn btn-default submit-btn" />
+                    </div>
+                }
+                </div><!-- /.col -->
+            </div><!-- /.row -->
+        </div><!-- /.container -->
+    </section>
+}
+
+<!-- ============================================================= SECTION – PORTFOLIO : END ============================================================= -->
+<section>
+    <div class="container inner">
+        <div class="row">
+            <div class="col-md-8 col-sm-9 center-block text-center">
+                
+            </div><!-- /.col -->
+        </div><!-- /.row -->
+    </div><!-- /.container -->>
+</section>

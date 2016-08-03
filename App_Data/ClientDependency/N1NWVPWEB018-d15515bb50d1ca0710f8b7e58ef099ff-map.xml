@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<map>
+  <item key="83a0da8a1b32afbb4c1ae92b32a0c55d" file="" compression="" version="1">
+    <files>
+      <file name="/DateTimePicker/jquery.datetimepicker.css" />
+    </files>
+  </item>
+  <item key="5ad3e6761dc9ee26e7b68c7d72e1ce72" file="" compression="" version="1">
+    <files>
+      <file name="/DateTimePicker/jquery.datetimepicker.js" />
+      <file name="/Javascript/DateTimePicker.js" />
+    </files>
+  </item>
+  <item key="83a0da8a1b32afbb4c1ae92b32a0c55d" file="G:\PleskVhosts\ucle.co\httpdocs\App_Data\ClientDependency\1_95ebc100eca241af985aeeaad08ffa0f.cdC" compression="gzip" version="1">
+    <files />
+  </item>
+  <item key="5ad3e6761dc9ee26e7b68c7d72e1ce72" file="G:\PleskVhosts\ucle.co\httpdocs\App_Data\ClientDependency\1_d0651297185b46b38d9510fe19b9747e.cdJ" compression="gzip" version="1">
+    <files />
+  </item>
+</map>

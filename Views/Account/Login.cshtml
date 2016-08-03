@@ -1,0 +1,42 @@
+﻿@model Ucle.Models.LoginViewModel
+
+@{
+    ViewBag.Title = "Login";
+}
+
+<!-- ============================================================= SECTION – PORTFOLIO ============================================================= -->
+
+<section id="portfolio">
+
+    <div class="container inner">
+        <div class="row">
+            <div class="col-md-8 col-sm-9 center-block text-center">
+                <header>
+                    <h1>Login</h1>
+                </header>
+            </div><!-- /.col -->
+        </div><!-- /.row -->
+    </div><!-- /.container -->
+</section>
+
+<!-- ============================================================= SECTION – PORTFOLIO : END ============================================================= -->
+<section>
+    <div class="container inner">
+        <div class="row">
+
+            @using( Html.BeginForm( "Login", "Account", FormMethod.Post, new { enctype = "multipart/form-data"} ) )
+            {
+                @Html.TextBoxFor( x => x.Username, new { placeholder = "Username"} )
+                @Html.ValidationMessageFor( x => x.Username )
+
+                @Html.TextBoxFor( x => x.Password, new { placeholder = "Password", type = "password" } )
+                @Html.ValidationMessageFor( x => x.Password )
+
+                <input type="submit" value="Login" class="btn btn-default" />
+                <p>@ViewBag.Error</p>
+            }
+
+        </div><!-- /.row -->
+    </div><!-- /.container -->>
+</section>
+

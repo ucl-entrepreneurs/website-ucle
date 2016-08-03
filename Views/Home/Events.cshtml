@@ -1,0 +1,107 @@
+﻿@model Ucle.Models.ViewEventsViewModel
+
+@{
+    ViewBag.Title = "Events";
+}
+
+<!-- ============================================================= SECTION – Events ============================================================= -->
+
+<section id="portfolio">
+
+    <div class="container inner">
+        <div class="row">
+            <div class="col-md-8 col-sm-9 center-block text-center">
+                <header>
+                    <h1>Upcoming Events</h1>
+                    <p>
+                        See the below calander for a list of our events
+                    </p>
+                </header>
+            </div><!-- /.col -->
+        </div><!-- /.row -->
+    </div><!-- /.container -->
+</section>
+
+<!-- ============================================================= SECTION – Events : END ============================================================= -->
+<!-- ============================================================= Calendar – Events ============================================================= -->
+<section class="mcon-maindemo" style="position: relative; padding-top:80px;">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 ">
+                <div class="the-bg" style=""></div>
+                <div class="dzscalendar-con  skin-responsive-galileo" style="max-width: 960px; margin: 25px auto;">
+                    <div class="dzscalendar skin-responsive-galileo auto-init" style="background: #fff;" data-options="{
+            design_month_covers : ['/assets/images/cal.jpg','/assets/images/cal.jpg','/assets/images/cal.jpg','/assets/images/cal.jpg','/assets/images/cal.jpg','/assets/images/cal.jpg','/assets/images/cal.jpg','/assets/images/cal.jpg','/assets/images/cal.jpg','/assets/images/cal.jpg','/assets/images/cal.jpg','/assets/images/cal.jpg']
+        }">
+                        <div class="events">
+                            <!--
+                            <div class="event-tobe" data-month="6" data-day="7" data-repeat="everyyear">
+                                <div style="width:240px;">
+                                    <h5>My birthday</h5>
+                                    <span class="label">Date</span> 11-8-2012 at 6PM<br/>
+                                    <span class="label">Location</span> Bremen, Germany<br/>
+                                    <br/>Ana is meeting with you in the town square.
+                                </div>
+                            </div>
+                            <div class="event-tobe" data-month="2" data-day="7" data-year="2014">
+                                <div style="width:240px;">
+                                    <h5>Event on February 7</h5>
+                                    <span class="label">Date</span> 11-8-2012 at 6PM<br/>
+                                    <span class="label">Location</span> Bremen, Germany<br/>
+                                    <br/>Ana is meeting with you in the town square.
+                                </div>
+                            </div>
+                            <div class="event-tobe" data-repeat="everymonth" data-tag="important" data-day="09">
+                                <div style="width:200px;">
+                                    <h5>Meeting at Palace</h5>
+                                    <span class="label">Date</span> 11-8-2012 at 6PM<br/>
+                                    <span class="label">Location</span> Bremen, Germany<br/>
+                                    <br/>Ana is meeting with you in the town square.
+                                </div>
+                            </div>
+                            <div class="event-tobe" data-tag="red" data-repeat="everymonth" data-day="18">
+                                <div style="width:200px;">
+                                    <h5>Meeting at Palace</h5>
+                                    <span class="label">Date</span> 11-8-2012 at 6PM<br/>
+                                    <span class="label">Location</span> Bremen, Germany<br/>
+                                    <br/>Ana is meeting with you in the town square.
+                                </div>
+                            </div>
+                            <div class="event-tobe" data-startdate="12-25-2013" data-enddate="12-29-2013">
+                                <div style="width:200px;">
+                                    <h5>Meeting at Palace</h5>
+                                    <span class="label">Date</span> 11-8-2012 at 6PM<br/>
+                                    <span class="label">Location</span> Bremen, Germany<br/>
+                                    <br/>Ana is meeting with you in the town square.
+                                </div>
+                            </div>
+                            -->
+                            @*<div class="event-tobe" data-date="3-14-2014">test</div>
+                            <div class="event-tobe" data-tag="blue" data-repeat="everymonth" data-day="25" data-type="link" data-href="http://google.com">whawa</div>
+                            <div class="event-tobe" data-tag="imgbg" data-eventbg="img/bg.jpg" data-repeat="everymonth" data-day="26" data-type="link" data-href="http://google.com">whawa</div>*@
+                            @foreach ( Ucle.Domain.Entities.Event ucleEvent in Model.Events )
+                            {
+                                <div class="event-tobe" data-month="@ucleEvent.Time.Month" data-day="@ucleEvent.Time.Day"
+                                     data-year="@ucleEvent.Time.Year">
+                                    <div style="width:240px;">
+                                        <h5>@ucleEvent.Title</h5>
+                                        <span class="label">Date</span> @ucleEvent.Time.ToString()<br />
+                                        <span class="label">Description</span> @ucleEvent.Description<br />
+
+                                        @if ( ucleEvent.UrlLink != null && ucleEvent.UrlLink != string.Empty )
+                                        {
+                                            <span class="label">Link</span> <a href="@ucleEvent.UrlLink" target="_blank">Link to event</a> <br />
+                                        }
+
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================= SECTION – Calendar : END ============================================================= -->

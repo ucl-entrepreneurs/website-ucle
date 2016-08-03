@@ -1,0 +1,133 @@
+﻿@model Ucle.Models.EmailViewModel
+
+@{
+    ViewBag.Title = "Ventures";
+}
+
+<!-- ============================================================= SECTION – PORTFOLIO ============================================================= -->
+
+<section id="portfolio">
+
+<div class="container inner">
+    <div class="row">
+        <div class="col-md-8 col-sm-9 center-block text-center">
+            <header>
+                <h1>Ventures</h1>
+                <p>
+                    Ventures is in charge of running various projects around UCL. We bring entrepreneurship to the community by giving everyone 
+                    the opportunity to experience business decisions, logistics, and customer interaction. We aim to build profitable ventures from 
+                    scratch throughout the year.
+                </p>
+            </header>
+        </div><!-- /.col -->
+    </div><!-- /.row -->
+</div><!-- /.container -->
+
+<div class="container inner">
+    <div class="row">
+        <div class="col-md-8 col-sm-9 center-block text-center">
+            <header>
+                <h1>Our Projects</h1>
+                <p>
+                    See below for all our projects.
+                </p>
+            </header>
+        </div><!-- /.col -->
+    </div><!-- /.row -->
+</div><!-- /.container -->
+
+<div class="container inner-bottom">
+    <div class="row">
+        <div class="col-sm-12 portfolio">
+            <ul class="items col-3 gap">
+
+                <li class="item thumb interactive">
+                    <figure>
+
+                        <div class="icon-overlay icn-link">
+                            <img src="/assets/images/Ventures Idea Competition.png" alt=""></a>
+                        </div><!-- /.icon-overlay -->
+
+                        <figcaption class="bordered no-top-border">
+                            <div class="info">
+                                <h4>Ventures Ideas Competition</h4>
+                                <p>Win 10% of the profits from the business</p>
+                            </div><!-- /.info -->
+                        </figcaption>
+
+                    </figure>
+                </li><!-- /.item -->
+
+                <li class="item thumb identity">
+                    <figure>
+
+                        <div class="icon-overlay icn-link">
+                            <img src="/assets/images/UCLe Quad photo 2.jpg" alt=""></a>
+                        </div><!-- /.icon-overlay -->
+
+                        <figcaption class="bordered no-top-border">
+                            <div class="info">
+                                <h4>Retail Venture</h4>
+                                <p>2014/2015 - T-shirts designed and sold by UCL students</p>
+                            </div><!-- /.info -->
+                        </figcaption>
+
+                    </figure>
+                </li><!-- /.item -->
+				
+				<li class="item thumb identity">
+                    <figure>
+
+                        <div class="icon-overlay icn-link">
+                            <img src="/assets/images/art/work04.jpg" alt=""></a>
+                        </div><!-- /.icon-overlay -->
+
+                        <figcaption class="bordered no-top-border">
+                            <div class="info">
+                                <h4>To be confirmed</h4>
+                                <p>2015/2016</p>
+                            </div><!-- /.info -->
+                        </figcaption>
+
+                    </figure>
+                </li><!-- /.item -->
+
+            </ul><!-- /.items -->
+
+        </div><!-- /.col -->
+    </div><!-- /.row -->
+</div><!-- /.container -->
+</section>
+
+<!-- ============================================================= SECTION – PORTFOLIO : END ============================================================= -->
+<section>
+    <div class="container inner">
+        <div class="row">
+            <div class="col-md-8 col-sm-9 center-block text-center">
+                <header>
+                    <h1>Contact Us</h1>
+                </header>
+
+                @using ( Html.BeginForm( "SendEmail", "Home", FormMethod.Post, new { enctype = "multipart/form-data" } ) )
+                {
+                    <div>
+                        @Html.TextBoxFor( x => x.YourEmail, new { @class = "form-control", placeholder = "Your Email" } )
+                        @Html.ValidationMessageFor( x => x.YourEmail )
+                        <br />
+
+                        @Html.TextBoxFor( x => x.Subject, new { @class = "form-control", placeholder = "Subject" } )
+                        @Html.ValidationMessageFor( x => x.Subject )
+                        <br />
+
+                        @Html.TextAreaFor( x => x.Body, new { @class = "form-control", placeholder = "Your Message" } )
+                        @Html.ValidationMessageFor( x => x.Body )
+                        <br />
+
+                        @Html.HiddenFor( x => x.SendToEmail )
+                        <input type="submit" value="Send" class="btn btn-default submit-btn" />
+                    </div>
+                }
+            </div><!-- /.col -->
+        </div><!-- /.row -->
+    </div><!-- /.container -->>
+</section>

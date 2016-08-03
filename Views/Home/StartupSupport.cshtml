@@ -1,0 +1,57 @@
+﻿@model Ucle.Models.EmailViewModel
+
+@{
+    ViewBag.Title = "Startup Support";
+}
+
+<!-- ============================================================= SECTION – PORTFOLIO ============================================================= -->
+
+<section id="portfolio">
+
+    <div class="container inner">
+        <div class="row">
+            <div class="col-md-8 col-sm-9 center-block text-center">
+                <header>
+                    <h1>Startup Support</h1>
+                    <p>
+                        Startup Support is a team dedicated to helping students with entrepreneurship. We offer advice for startups and direct students to UCL’s relevant services. 
+                        If you’re planning on presenting your idea to a potential investor or VC firm, we will review your business plans and make sure you’re ready!
+                    </p>
+                </header>
+            </div><!-- /.col -->
+        </div><!-- /.row -->
+    </div><!-- /.container -->
+</section>
+
+<!-- ============================================================= SECTION – PORTFOLIO : END ============================================================= -->
+<section>
+    <div class="container inner">
+        <div class="row">
+            <div class="col-md-8 col-sm-9 center-block text-center">
+                <header>
+                    <h1>Contact Us</h1>
+                </header>
+
+                @using ( Html.BeginForm( "SendEmail", "Home", FormMethod.Post, new { enctype = "multipart/form-data" } ) )
+                {
+                    <div>
+                        @Html.TextBoxFor( x => x.YourEmail, new { @class = "form-control", placeholder = "Your Email" } )
+                        @Html.ValidationMessageFor( x => x.YourEmail )
+                        <br />
+
+                        @Html.TextBoxFor( x => x.Subject, new { @class = "form-control", placeholder = "Subject" } )
+                        @Html.ValidationMessageFor( x => x.Subject )
+                        <br />
+
+                        @Html.TextAreaFor( x => x.Body, new { @class = "form-control", placeholder = "Your Message" } )
+                        @Html.ValidationMessageFor( x => x.Body )
+                        <br />
+
+                        @Html.HiddenFor( x => x.SendToEmail )
+                        <input type="submit" value="Send" class="btn btn-default submit-btn" />
+                    </div>
+                }
+            </div><!-- /.col -->
+        </div><!-- /.row -->
+    </div><!-- /.container -->>
+</section>

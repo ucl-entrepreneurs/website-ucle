@@ -1,0 +1,86 @@
+﻿@using Ucle.Domain.Entities;
+
+@model Ucle.Models.ViewSubscriptionsViewModel
+
+@{
+    ViewBag.Title = "View Subscriptions";
+}
+
+<section id="viewsubscriptions">
+    <div class="container inner">
+        <div class="row">
+            <div class="col-md-8 col-sm-9 center-block text-center">
+                <header>
+                    <h1>Current Subscriptions</h1>                   
+                    @if ( ViewBag.DeleteSubscriptionSuccess != null )
+                    {
+                        <p>@ViewBag.DeleteSubscriptionSuccess</p>
+                    }
+                </header>
+            </div><!-- /.col -->
+        </div><!-- /.row -->
+    </div><!-- /.container -->
+</section>
+
+<section>
+    <div class="container inner">
+        <div class="row">
+            <div class="col-md-12">
+                @if ( Model.Subscriptions != null && Model.Subscriptions.Count > 0 )
+                {
+                    <table class="my-table table table-bordered table-striped" cellspacing="0" width="100%">
+                        <thead>
+                            <tr>
+                                <th>Email Address</th>
+                                <th>Delete</th>
+                            </tr>
+                        </thead>
+                        <tfoot>
+                            <tr>
+                                <th>Email Address</th>
+                                <th>Delete</th>
+                            </tr>
+                        </tfoot>
+                        <tbody>
+                            @foreach ( Subscription subscription in Model.Subscriptions )
+                            {
+                                <tr>
+                                    <th>@subscription.EmailAddress</th>
+                                    <th>
+                                        @using ( Html.BeginForm( "DeleteSubscription", "User", FormMethod.Post, new { enctype = "multpart/form-data" } ) )
+                                        {
+                                            @Html.Hidden( "id", subscription.ID )
+                                            <input type="submit" value="Delete" class=" small-btn btn btn-default" />
+                                        }
+                                    </th>
+
+
+                                    @*<th>@Html.ActionLink( "Delete", "DeleteSubscription", "User", new { id = @subscription.ID }, new { } )</th>*@
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                }
+                else
+                {
+                    <header>
+                        <div class="col-md-8 col-sm-9 center-block text-center">
+                            <p>There are currently no subscriptions</p>
+                        </div>
+                    </header>
+                }
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ============================================================= SECTION – VIEW SUBSCRIPTIONS : END ============================================================= -->
+<section>
+    <div class="container inner">
+        <div class="row">
+            <div class="col-md-8 col-sm-9 center-block text-center">
+
+            </div><!-- /.col -->
+        </div><!-- /.row -->
+    </div><!-- /.container -->
+</section>

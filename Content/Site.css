@@ -1,0 +1,87 @@
+﻿.submit-btn
+{
+    margin:0px;
+    padding:10px;
+}
+
+.home-signup-field
+{
+    height: 68px !important;
+    border: 1px solid #ccc !important;
+}
+
+.footer-image-logo
+{
+    height:80px !important;
+}
+
+.dark-bg
+{
+    background-color: #aa5800;
+}
+
+.footer-bottom
+{
+    background-color: #773f03;
+}
+
+.dark-bg, .dark-bg p, .dark-bg .item-details li:before
+{
+    color: white;
+}
+
+.sponsor-list
+{
+    list-style:none;
+}
+
+.sponsor-list li
+{
+    float: left;
+    margin: 10px;
+}
+
+.sponsor-list li div
+{
+    width: 250px;
+    height:250px;
+    border: 1px solid black;
+}
+
+.spacer
+{
+    width:100%;
+    height:50px;
+}
+
+.small-btn
+{
+    width:100px;
+    margin: 5px;
+}
+
+.the-number
+{
+    font-size:20px;
+}
+
+.key-phases
+{
+    text-align:left;
+    list-style: decimal;    
+}
+
+.key-phases li
+{
+    margin: 20px;
+}
+
+.num-text
+{
+    font-size:30px;
+}
+
+.shadow-text
+{
+    text-shadow: 2px 2px #ce701e;
+}
